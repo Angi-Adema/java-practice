@@ -12,6 +12,24 @@ public class StringMethods {
     // equalsIgnoreCase(), startsWith(), endsWith(), replace(), contains(), trim(), strip(), stripLeading(), stripTrailing() and intern().
 
     public static void main(String[] args) {
+        // Rather than iterate over the letters and creating 26 strings, we use StringBuilder to append each letter with each iteration.
+        StringBuilder newString = new StringBuilder();
+        for(char current = 'a'; current <= 'z'; current++)
+            if(current < 'z') {
+                newString.append(current + ", ");
+            } else {
+                newString.append(current);
+            }
+
+//        System.out.println(newString);
+
+        // StringBuilder updates and stores its own state.
+        StringBuilder sample = new StringBuilder("beginning");
+        sample.append("+middle");
+        StringBuilder newSample = sample.append("+end");
+        System.out.println(sample);
+        System.out.println(newSample);
+
         StringMethods sampleWord = new StringMethods();
 
 //        System.out.println(sampleWord.word.length());
@@ -47,7 +65,7 @@ public class StringMethods {
 //        System.out.println(sampleWord.spaceWord.stripTrailing());
 
         // trim() only removes leading and ending spaces, not spaces in between letters.
-        System.out.println(sampleWord.separatedWord.trim());  // Returns the original word "j e w e l r y".
-        System.out.println(sampleWord.separatedWord.replace(" ", ""));
+//        System.out.println(sampleWord.separatedWord.trim());  // Returns the original word "j e w e l r y".
+//        System.out.println(sampleWord.separatedWord.replace(" ", ""));
     }
 }
