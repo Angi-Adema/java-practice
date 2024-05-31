@@ -52,6 +52,54 @@ public class ArrayListPractice {
         one.add("a");
 //        System.out.println(one.equals(two));
 
+        // Autoboxing and unboxing. (converting a primitive to its relevant wrapper class and vice versa.)
+        List<Integer> weights = new ArrayList<>();
+        Integer w = 50; // Unboxes the int primitive into an Integer object.
+        weights.add(w);
+        weights.add(Integer.valueOf(60)); // Autobox the int to wrapper Integer.
 
+//      System.out.println(weights);
+
+        // Turn ArrayList into an array. Cannot change values in the new array.
+        List<String> list2 = new ArrayList<>();
+        list2.add("hawk");
+        list2.add("eagle");
+        list2.add("owl");
+        String[] newArray = list2.toArray(new String[0]);
+//      System.out.println(Arrays.toString(newArray));
+
+      // We can use "instanceof" to confirm type once the conversion is complete.
+      if(newArray instanceof String[]) {
+//        System.out.println("ArrayList was converted to array.");
+      } else {
+//        System.out.println("ArrayList was not converted to an array.");
+      }
+
+      // Converting an array to a list (NOT ArrayList) using .asList() allows elements to be updated in both the list and the array.
+      // Cannot remove elements from list.
+      String[] birdArray = {"robin", "finch", "magpie"};
+      List<String> birdList = Arrays.asList(birdArray);
+//      System.out.println(birdList.size());  // Prints 3.
+
+      birdList.set(0, "test");
+      birdArray[1] = "test2";
+//      System.out.println(Arrays.toString(birdArray));
+
+      // Convert an array to a list using .of() creates an immutable list.
+      String[] newBirdArray = {"toucan", "macaw", "amazon"};
+      List<String> newBirdList = List.of(newBirdArray);
+//      System.out.println(newBirdList.size());
+
+      newBirdArray[0] = "test";
+//      System.out.println(Arrays.toString(newBirdArray));
+//      System.out.println(newBirdList);
+
+      // Sorting an ArrayList.
+      List<Integer> numbersList = new ArrayList<>();
+      numbersList.add(32);
+      numbersList.add(15);
+      numbersList.add(24);
+      Collections.sort(numbersList);
+      System.out.println(numbersList);
     }
 }
