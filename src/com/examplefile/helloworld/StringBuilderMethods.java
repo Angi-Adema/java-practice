@@ -51,6 +51,15 @@ public class StringBuilderMethods {
         // toString.
         newTest.reverse();
         String s = newTest.toString();
-        System.out.println(s);
+//        System.out.println(s);
+
+        // When referencing the string pool, if two strings are not equal or pointing to the same object in memory, we can use intern().
+        String greeting = "Hello World";
+        String greeting2 = new String("Hello World");
+//        System.out.println(greeting == greeting2);
+
+        String newGreeting = "Hello World";
+        String newGreeting2 = new String("Hello World").intern();
+//        System.out.println(newGreeting == newGreeting2);
     }
 }
